@@ -3,6 +3,10 @@
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
   },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "tsx watch src/server.ts"
+  },
   "dependencies": {
     "express": "^4.21.2",
     "socket.io": "^4.8.1"
