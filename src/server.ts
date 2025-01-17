@@ -20,6 +20,12 @@ class App{
     listenSocket(){
         this.io.on('connection', (socket) => {
             console.log('User => ', socket.id)
+
+            socket.on('message', (msg) => {
+                console.log('Message => ', msg)
+                this.io.emit('message', msg)
+            })
+
             socket.on('disconnect', () => {
                 console.log('User disconnected')
             })

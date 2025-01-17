@@ -108,24 +108,44 @@
 <body>
     <div class="chat">
         <div class="chat-header">
-            <img src="https://via.placeholder.com/40" alt="User">
-            <h4>Bate-Papo</h4>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVTjEiEEPPkuVXG9ytGveIDy9XonDMk0hd5Q&s" alt="User">
+            <h4>#GRUPO DEV BRASIL 🇧🇷</h4>
         </div>
         <div class="chat-body">
-            <div class="message received">
-                Olá, tudo bem?
-            </div>
-            <div class="message sent">
-                Tudo ótimo! E você?
-            </div>
-            <div class="message received">
-                Estou bem, obrigado!
-            </div>
         </div>
         <div class="chat-footer">
             <input type="text" placeholder="Digite uma mensagem...">
-            <button>Enviar</button>
+            <button id="btnEnviar" onclick="enviar()">Enviar</button>
         </div>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        function enviar() {
+            const input = document.querySelector('input');
+            const message = input.value;
+            input.value = '';
+            const chatBody = document.querySelector('.chat-body');
+            const div = document.createElement('div');
+            div.textContent = message;
+            div.classList.add('message', 'received');
+            chatBody.appendChild(div);
+            socket.emit('message', message);
+        }
+
+       // document.addEventListener('submit', event => {
+       //     event.preventDefault();
+       //     const input = document.querySelector('input');
+       //     const message = input.value;
+       //     input.value = '';
+       //     const chatBody = document.querySelector('.chat-body');
+       //     const div = document.createElement('div');
+       //     div.textContent = message;
+       //     div.classList.add('message', 'sent');
+       //     chatBody.appendChild(div);
+       //     socket.emit('message', message);
+       // });
+    </script>
 </body>
 </html>
