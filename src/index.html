@@ -114,7 +114,7 @@
         <div class="chat-body">
         </div>
         <div class="chat-footer">
-            <input type="text" placeholder="Digite uma mensagem...">
+            <input type="text" placeholder="Digite uma mensagem..." id="messageInput">
             <button id="btnEnviar" onclick="enviar()">Enviar</button>
         </div>
     </div>
@@ -131,11 +131,17 @@
         });
 
         function enviar() {
-            const input = document.querySelector('input');
+            const input = document.querySelector('#messageInput');
             const message = input.value;
             input.value = '';
             socket.emit('message', message);
         }
+
+        document.querySelector('#messageInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                enviar();
+            }
+        });
     </script>
 </body>
 </html>
