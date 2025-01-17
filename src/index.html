@@ -122,30 +122,20 @@
     <script>
         const socket = io();
 
-        function enviar() {
-            const input = document.querySelector('input');
-            const message = input.value;
-            input.value = '';
+        socket.on('message', message => {
             const chatBody = document.querySelector('.chat-body');
             const div = document.createElement('div');
             div.textContent = message;
             div.classList.add('message', 'received');
             chatBody.appendChild(div);
+        });
+
+        function enviar() {
+            const input = document.querySelector('input');
+            const message = input.value;
+            input.value = '';
             socket.emit('message', message);
         }
-
-       // document.addEventListener('submit', event => {
-       //     event.preventDefault();
-       //     const input = document.querySelector('input');
-       //     const message = input.value;
-       //     input.value = '';
-       //     const chatBody = document.querySelector('.chat-body');
-       //     const div = document.createElement('div');
-       //     div.textContent = message;
-       //     div.classList.add('message', 'sent');
-       //     chatBody.appendChild(div);
-       //     socket.emit('message', message);
-       // });
     </script>
 </body>
 </html>
