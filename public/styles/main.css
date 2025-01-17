@@ -46,6 +46,7 @@ body {
 .chat-body {
     flex: 1;
     padding: 15px;
+    padding-bottom: 60px; /* Ajuste conforme necessário */
     overflow-y: auto;
 }
 
@@ -75,7 +76,10 @@ body {
     border-top: 1px solid #ddd;
     display: flex;
     align-items: center;
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .input-container {

@@ -17,7 +17,6 @@ function salvarUsername() {
         sessionStorage.setItem('username', username);
         sessionStorage.setItem('color', color);
         document.getElementById('usernameModal').style.display = 'none';
-        console.log('Nome de usuário salvo: ' + username);
 
         // Envia os dados para o servidor
         socket.emit('setUsername', { username: username, color: color });
