@@ -1,5 +1,5 @@
 # Real-Time Chat with WebSockets
-<img src="https://i.imgur.com/jLRyLfB.png" alt="Imagem do Projeto" width="600" />
+<img src="https://i.imgur.com/jLRyLfB.png" alt="Imagem do Projeto" width="200" />
 
 ## Descrição
 
