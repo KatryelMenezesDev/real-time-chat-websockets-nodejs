@@ -15,7 +15,7 @@ class App{
         this.setRoutes()
     }
     listenServer(){
-        this.http.listen(3000, () => { console.log('Server running on port 3000') })
+        this.http.listen(80, () => { console.log('Server running on port 80') })
     }
     listenSocket(){
         this.io.on('connection', (socket) => {
@@ -32,8 +32,9 @@ class App{
         })
     }
     setRoutes(){
+        this.app.use(express.static('public'))
         this.app.get('/', (req, res) => {
-            res.sendFile(__dirname + '/index.html')
+            res.sendFile('index.html', { root: 'site' })
         })
     }
 }
