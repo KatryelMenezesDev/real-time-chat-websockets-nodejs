@@ -21,9 +21,9 @@ class App{
         this.io.on('connection', (socket) => {
             console.log('User => ', socket.id)
 
-            socket.on('message', (msg) => {
-                console.log('Message => ', msg)
-                this.io.emit('message', msg)
+            socket.on('chat', (msg) => {
+                console.log('Chat => ', msg)
+                this.io.emit('chat', msg)
             })
 
             socket.on('disconnect', () => {
