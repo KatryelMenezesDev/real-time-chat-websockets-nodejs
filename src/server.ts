@@ -11,9 +11,24 @@ class App{
         this.app = express()
         this.http = http.createServer(this.app)
         this.io = new Server(this.http)
+        this.listenSocket()
+        this.setRoutes()
     }
     listenServer(){
         this.http.listen(3000, () => { console.log('Server running on port 3000') })
+    }
+    listenSocket(){
+        this.io.on('connection', (socket) => {
+            console.log('User => ', socket.id)
+            socket.on('disconnect', () => {
+                console.log('User disconnected')
+            })
+        })
+    }
+    setRoutes(){
+        this.app.get('/', (req, res) => {
+            res.sendFile(__dirname + '/index.html')
+        })
     }
 }
 

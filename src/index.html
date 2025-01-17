@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bate-Papo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            background-color: #f0f2f5;
+        }
+
+        .chat {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #e5ddd5;
+        }
+
+        .chat-header {
+            padding: 15px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+        }
+
+        .chat-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .chat-header h4 {
+            font-size: 18px;
+        }
+
+        .chat-body {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            max-width: 60%;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .sent {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+        }
+
+        .received {
+            background-color: #ffffff;
+            align-self: flex-start;
+        }
+
+        .chat-footer {
+            padding: 10px;
+            background-color: #ffffff;
+            border-top: 1px solid #ddd;
+            display: flex;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chat-footer button {
+            margin-left: 10px;
+            padding: 10px 15px;
+            background-color: #128c7e;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .chat-footer button:hover {
+            background-color: #075e54;
+        }
+
+        @media (max-width: 768px) {
+            .chat-header h4 {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat">
+        <div class="chat-header">
+            <img src="https://via.placeholder.com/40" alt="User">
+            <h4>Bate-Papo</h4>
+        </div>
+        <div class="chat-body">
+            <div class="message received">
+                Olá, tudo bem?
+            </div>
+            <div class="message sent">
+                Tudo ótimo! E você?
+            </div>
+            <div class="message received">
+                Estou bem, obrigado!
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" placeholder="Digite uma mensagem...">
+            <button>Enviar</button>
+        </div>
+    </div>
+</body>
+</html>
